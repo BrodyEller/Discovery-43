@@ -7,10 +7,7 @@ path="res://.import/snow_background.png-589b3737ba6b53d9ef45fc73db755499.stex"
 [deps]
 
 source_file="res://textures/snow_background.png"
-source_md5="158b98a3cdb5af806c8e37389cd1c715"
-
 dest_files=[ "res://.import/snow_background.png-589b3737ba6b53d9ef45fc73db755499.stex" ]
-dest_md5="3e92aa9aa142d95482ce53056ff84c07"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

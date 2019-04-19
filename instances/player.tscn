@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/player_controller.gd" type="Script" id=1]
-[ext_resource path="res://characters/Doctor.png" type="Texture" id=2]
+[ext_resource path="res://characters/pilot.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 4.88631
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -17,6 +17,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 MOVE_SPEED = 1
+SCALE = 1
 
 [node name="player_sprite" type="Sprite" parent="." index="0"]
 
@@ -31,9 +32,9 @@ rotating = false
 current = true
 zoom = Vector2( 0.25, 0.25 )
 limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 1024
+limit_top = 96
+limit_right = 500
+limit_bottom = 499
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
@@ -52,7 +53,7 @@ _sections_unfolded = [ "Drag Margin", "Limit", "Smoothing", "Transform" ]
 
 [node name="collision_shape" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 0.597691, -2.41943 )
+position = Vector2( 0.703206, -3.82626 )
 shape = SubResource( 1 )
 
 

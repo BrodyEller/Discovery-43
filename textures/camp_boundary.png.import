@@ -7,10 +7,7 @@ path="res://.import/camp_boundary.png-789c2a8a56686c3bba340c96c3d043f2.stex"
 [deps]
 
 source_file="res://textures/camp_boundary.png"
-source_md5="86a7a5581a2a5f400b0f5256dc0c09ef"
-
 dest_files=[ "res://.import/camp_boundary.png-789c2a8a56686c3bba340c96c3d043f2.stex" ]
-dest_md5="3c484ede74549b5a0be7cdab00f4cee5"
 
 [params]
 

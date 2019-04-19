@@ -7,10 +7,7 @@ path="res://.import/light_texture.png-44046b1a4e259df0d01eb6344adba82b.stex"
 [deps]
 
 source_file="res://textures/light_texture.png"
-source_md5="5754d59c77aaf30b391e587469de688e"
-
 dest_files=[ "res://.import/light_texture.png-44046b1a4e259df0d01eb6344adba82b.stex" ]
-dest_md5="9ce8b4a71e8a63991d98419dafbcc81e"
 
 [params]
 

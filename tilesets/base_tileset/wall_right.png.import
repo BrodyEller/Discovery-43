@@ -7,10 +7,7 @@ path="res://.import/wall_right.png-22c24450cfcb876c94e24202c7f92b8e.stex"
 [deps]
 
 source_file="res://tilesets/base_tileset/wall_right.png"
-source_md5="de37430b21739c213eea69997ce0a941"
-
 dest_files=[ "res://.import/wall_right.png-22c24450cfcb876c94e24202c7f92b8e.stex" ]
-dest_md5="9928e81a0fcb2d2afeca07df59033b91"
 
 [params]
 

@@ -1,0 +1,754 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://scripts/indoors_manager.gd" type="Script" id=1]
+[ext_resource path="res://textures/black_background.png" type="Texture" id=2]
+[ext_resource path="res://textures/camp_inside_back_walls.png" type="Texture" id=3]
+[ext_resource path="res://textures/camp_inside_floor.png" type="Texture" id=4]
+[ext_resource path="res://scripts/player_controller.gd" type="Script" id=5]
+[ext_resource path="res://characters/pilot.png" type="Texture" id=6]
+[ext_resource path="res://textures/walls/camp_wall_01.png" type="Texture" id=7]
+[ext_resource path="res://textures/walls/camp_wall_02.png" type="Texture" id=8]
+[ext_resource path="res://textures/walls/camp_wall_03.png" type="Texture" id=9]
+[ext_resource path="res://textures/walls/camp_wall_04.png" type="Texture" id=10]
+[ext_resource path="res://textures/walls/camp_wall_06.png" type="Texture" id=11]
+[ext_resource path="res://textures/walls/camp_wall_10.png" type="Texture" id=12]
+[ext_resource path="res://textures/walls/camp_wall_11.png" type="Texture" id=13]
+[ext_resource path="res://textures/walls/camp_wall_12.png" type="Texture" id=14]
+[ext_resource path="res://textures/walls/camp_wall_13.png" type="Texture" id=15]
+[ext_resource path="res://textures/walls/camp_wall_14.png" type="Texture" id=16]
+[ext_resource path="res://textures/walls/camp_wall_15.png" type="Texture" id=17]
+[ext_resource path="res://textures/walls/camp_wall_16.png" type="Texture" id=18]
+[ext_resource path="res://textures/walls/camp_wall_17.png" type="Texture" id=19]
+[ext_resource path="res://textures/walls/camp_wall_18.png" type="Texture" id=20]
+[ext_resource path="res://textures/walls/camp_wall_19.png" type="Texture" id=21]
+[ext_resource path="res://textures/walls/camp_wall_20.png" type="Texture" id=22]
+[ext_resource path="res://textures/walls/camp_wall_21.png" type="Texture" id=23]
+[ext_resource path="res://textures/walls/camp_wall_22.png" type="Texture" id=24]
+[ext_resource path="res://textures/walls/camp_wall_23.png" type="Texture" id=25]
+[ext_resource path="res://textures/walls/camp_wall_24.png" type="Texture" id=26]
+[ext_resource path="res://textures/walls/camp_wall_25.png" type="Texture" id=27]
+[ext_resource path="res://characters/dogkeeper.png" type="Texture" id=28]
+[ext_resource path="res://characters/scientist.png" type="Texture" id=29]
+[ext_resource path="res://scripts/door_mat.gd" type="Script" id=30]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 4.88631
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 98, -2, 0, 0, 0, 0, 98, -66, 0, 0, 0, 0, 98, -2, 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 72, -2 )
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "Walk"
+length = 18.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("path_follow:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 18 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 310.0 ]
+}
+
+[sub_resource type="Curve2D" id=4]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 44, -2, 0, 0, 0, 0, 44, 24, 0, 0, 0, 0, 118, 24, 0, 0, 0, 0, 118, -2, 0, 0, 0, 0, 74, -2, 0, 0, 0, 0, 74, -122, 0, 0, 0, 0, 74, -138, 0, 0, 0, 0, 108, -138, 0, 0, 0, 0, 108, -164, 0, 0, 0, 0, 44, -164, 0, 0, 0, 0, 44, -138, 0, 0, 0, 0, 74, -138, 0, 0, 0, 0, 74, -2, 0, 0, 0, 0, 44, -2 )
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Walk"
+length = 20.0
+loop = true
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 640.103 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14, 14 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14, 14 )
+
+[node name="indoors" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back_walls" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="camp_floors" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="wall_bounds" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Pickable" ]
+
+[node name="outer_walls" type="CollisionPolygon2D" parent="wall_bounds" index="0"]
+
+visible = false
+build_mode = 1
+polygon = PoolVector2Array( 82, 434, 82, 750, 238, 750, 238, 654, 786, 654, 786, 814, 942, 814, 942, 242, 754, 242, 754, 434, 206, 434, 206, 370, 146, 370, 146, 434 )
+
+[node name="inner_walls_01" type="CollisionPolygon2D" parent="wall_bounds" index="1"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 846, 656, 846, 722, 946, 722, 946, 718, 850, 718, 850, 656 )
+
+[node name="inner_walls_04" type="CollisionPolygon2D" parent="wall_bounds" index="2"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 946, 606, 926, 606, 926, 610, 946, 610 )
+
+[node name="inner_walls_05" type="CollisionPolygon2D" parent="wall_bounds" index="3"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 846, 624, 850, 624, 850, 610, 898, 610, 898, 606, 866, 606, 866, 560, 862, 560, 862, 606, 846, 606 )
+
+[node name="inner_walls_06" type="CollisionPolygon2D" parent="wall_bounds" index="4"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 862, 528, 866, 528, 866, 450, 946, 450, 946, 446, 862, 446 )
+
+[node name="inner_walls_07" type="CollisionPolygon2D" parent="wall_bounds" index="5"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 830, 448, 834, 448, 834, 430, 750, 430, 750, 434, 830, 434 )
+
+[node name="inner_walls_08" type="CollisionPolygon2D" parent="wall_bounds" index="6"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 834, 480, 834, 530, 750, 530, 750, 526, 830, 526, 830, 480 )
+
+[node name="inner_walls_09" type="CollisionPolygon2D" parent="wall_bounds" index="7"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 622, 432, 622, 526, 398, 526, 398, 530, 722, 530, 722, 526, 626, 526, 626, 432 )
+
+[node name="inner_walls_10" type="CollisionPolygon2D" parent="wall_bounds" index="8"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 578, 430, 578, 464, 574, 464, 574, 430 )
+
+[node name="inner_walls_11" type="CollisionPolygon2D" parent="wall_bounds" index="9"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 370, 430, 370, 530, 334, 530, 334, 526, 366, 526, 366, 430 )
+
+[node name="inner_walls_12" type="CollisionPolygon2D" parent="wall_bounds" index="10"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 270, 432, 270, 530, 306, 530, 306, 526, 274, 526, 274, 432 )
+
+[node name="inner_walls_13" type="CollisionPolygon2D" parent="wall_bounds" index="11"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 142, 430, 142, 434, 176, 434, 176, 430 )
+
+[node name="inner_walls_14" type="CollisionPolygon2D" parent="wall_bounds" index="12"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 78, 494, 78, 498, 238, 498, 238, 528, 242, 528, 242, 494 )
+
+[node name="inner_walls_15" type="CollisionPolygon2D" parent="wall_bounds" index="13"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 242, 560, 242, 626, 80, 626, 80, 622, 238, 622, 238, 560 )
+
+[node name="inner_walls_16" type="CollisionPolygon2D" parent="wall_bounds" index="14"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 270, 658, 270, 590, 306, 590, 306, 594, 274, 594, 274, 658 )
+
+[node name="inner_walls_17" type="CollisionPolygon2D" parent="wall_bounds" index="15"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 334, 590, 334, 594, 382, 594, 382, 658, 386, 658, 386, 626, 402, 626, 402, 622, 386, 622, 386, 590 )
+
+[node name="inner_walls_18" type="CollisionPolygon2D" parent="wall_bounds" index="16"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 450, 590, 450, 594, 434, 594, 434, 658, 430, 658, 430, 626, 414, 626, 414, 622, 430, 622, 430, 590 )
+
+[node name="inner_walls_19" type="CollisionPolygon2D" parent="wall_bounds" index="17"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 478, 590, 478, 594, 510, 594, 510, 658, 514, 658, 514, 590 )
+
+[node name="inner_walls_20" type="CollisionPolygon2D" parent="wall_bounds" index="18"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 542, 590, 542, 594, 590, 594, 590, 658, 594, 658, 594, 590 )
+
+[node name="inner_walls_21" type="CollisionPolygon2D" parent="wall_bounds" index="19"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 622, 590, 622, 594, 670, 594, 670, 658, 674, 658, 674, 590 )
+
+[node name="inner_walls_22" type="CollisionPolygon2D" parent="wall_bounds" index="20"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 702, 590, 702, 594, 766, 594, 766, 658, 770, 658, 770, 594, 786, 594, 786, 590 )
+
+[node name="inner_walls_23" type="CollisionPolygon2D" parent="wall_bounds" index="21"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 798, 590, 798, 594, 814, 594, 814, 654, 782, 654, 782, 658, 818, 658, 818, 590 )
+
+[node name="YSort" type="YSort" parent="." index="4"]
+
+sort_enabled = true
+_sections_unfolded = [ "Sort" ]
+
+[node name="player" type="KinematicBody2D" parent="YSort" index="0"]
+
+editor/display_folded = true
+position = Vector2( 830, 730 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+MOVE_SPEED = 1
+SCALE = 1
+
+[node name="player_sprite" type="Sprite" parent="YSort/player" index="0"]
+
+position = Vector2( 0.485596, -10.4419 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="camera" type="Camera2D" parent="YSort/player" index="1"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.25, 0.25 )
+limit_left = 0
+limit_top = 0
+limit_right = 1024
+limit_bottom = 1024
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.05
+drag_margin_top = 0.05
+drag_margin_right = 0.05
+drag_margin_bottom = 0.05
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Limit", "Smoothing", "Transform" ]
+
+[node name="collision_shape" type="CollisionShape2D" parent="YSort/player" index="2"]
+
+position = Vector2( 0.703206, -3.82626 )
+shape = SubResource( 1 )
+
+[node name="camp_wall_01" type="Sprite" parent="YSort" index="1"]
+
+position = Vector2( 846, 722 )
+scale = Vector2( 0.502513, 0.5 )
+texture = ExtResource( 7 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_02" type="Sprite" parent="YSort" index="2"]
+
+position = Vector2( 926, 610 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_03" type="Sprite" parent="YSort" index="3"]
+
+position = Vector2( 862, 610 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_04" type="Sprite" parent="YSort" index="4"]
+
+position = Vector2( 862, 450 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_06" type="Sprite" parent="YSort" index="5"]
+
+position = Vector2( 750, 434 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_10" type="Sprite" parent="YSort" index="6"]
+
+position = Vector2( 78, 626 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_11" type="Sprite" parent="YSort" index="7"]
+
+position = Vector2( 78, 498 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_12" type="Sprite" parent="YSort" index="8"]
+
+position = Vector2( 270, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 14 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_13" type="Sprite" parent="YSort" index="9"]
+
+position = Vector2( 334, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_14" type="Sprite" parent="YSort" index="10"]
+
+position = Vector2( 382, 626 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 16 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_15" type="Sprite" parent="YSort" index="11"]
+
+position = Vector2( 414, 626 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 17 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_16" type="Sprite" parent="YSort" index="12"]
+
+position = Vector2( 430, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_17" type="Sprite" parent="YSort" index="13"]
+
+position = Vector2( 478, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_18" type="Sprite" parent="YSort" index="14"]
+
+position = Vector2( 542, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_19" type="Sprite" parent="YSort" index="15"]
+
+position = Vector2( 622, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 21 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_20" type="Sprite" parent="YSort" index="16"]
+
+position = Vector2( 786.071, 594.032 )
+scale = Vector2( -0.5, 0.5 )
+texture = ExtResource( 22 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_21" type="Sprite" parent="YSort" index="17"]
+
+position = Vector2( 798, 594 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 23 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_22" type="Sprite" parent="YSort" index="18"]
+
+position = Vector2( 750, 530 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 24 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_23" type="Sprite" parent="YSort" index="19"]
+
+position = Vector2( 722.042, 529.952 )
+scale = Vector2( -0.5, 0.5 )
+texture = ExtResource( 25 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_24" type="Sprite" parent="YSort" index="20"]
+
+position = Vector2( 334, 530 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 26 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camp_wall_25" type="Sprite" parent="YSort" index="21"]
+
+position = Vector2( 270, 530 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 27 )
+centered = false
+offset = Vector2( 0, -71 )
+flip_h = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="npc" type="YSort" parent="YSort" index="22"]
+
+editor/display_folded = true
+sort_enabled = true
+_sections_unfolded = [ "Sort" ]
+
+[node name="dogkeeper" type="Path2D" parent="YSort/npc" index="0"]
+
+editor/display_folded = true
+position = Vector2( 94, 450 )
+curve = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="path_follow" type="PathFollow2D" parent="YSort/npc/dogkeeper" index="0"]
+
+position = Vector2( 75.6154, -2 )
+offset = 75.6156
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="dogkeeper_sprite" type="Sprite" parent="YSort/npc/dogkeeper/path_follow" index="0"]
+
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="animation_player" type="AnimationPlayer" parent="YSort/npc/dogkeeper" index="1"]
+
+root_node = NodePath("..")
+autoplay = "Walk"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Walk = SubResource( 3 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="scientist" type="Path2D" parent="YSort/npc" index="1"]
+
+editor/display_folded = true
+position = Vector2( 246, 614 )
+curve = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="path_follow" type="PathFollow2D" parent="YSort/npc/scientist" index="0"]
+
+editor/display_folded = true
+position = Vector2( 74.0482, -164 )
+rotation = -0.0135241
+offset = 390.059
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="animation_player" type="AnimationPlayer" parent="YSort/npc/scientist/path_follow" index="0"]
+
+root_node = NodePath("..")
+autoplay = "Walk"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Walk = SubResource( 5 )
+blend_times = [  ]
+
+[node name="scientist_sprite" type="Sprite" parent="YSort/npc/scientist/path_follow" index="1"]
+
+texture = ExtResource( 29 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="door_triggers" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="door_trigger_right" type="Area2D" parent="door_triggers" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="collision_shape" type="CollisionShape2D" parent="door_triggers/door_trigger_right" index="0"]
+
+position = Vector2( 800, 720 )
+shape = SubResource( 6 )
+
+[node name="door_trigger_left" type="Area2D" parent="door_triggers" index="1"]
+
+position = Vector2( -576, -32 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="collision_shape" type="CollisionShape2D" parent="door_triggers/door_trigger_left" index="0"]
+
+position = Vector2( 800, 720 )
+shape = SubResource( 7 )
+
+[node name="spawn_points" type="Node2D" parent="." index="6"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="spawn_point_right" type="Node2D" parent="spawn_points" index="0"]
+
+position = Vector2( 832, 720 )
+
+[node name="spawn_point_left" type="Node2D" parent="spawn_points" index="1"]
+
+position = Vector2( 186, 692 )
+
+[connection signal="body_entered" from="door_triggers/door_trigger_right" to="door_triggers/door_trigger_right" method="_on_top_right_body_entered"]
+
+[connection signal="body_entered" from="door_triggers/door_trigger_left" to="door_triggers/door_trigger_left" method="_on_top_left_body_entered"]
+
+

@@ -7,10 +7,7 @@ path="res://.import/camp.png-cc940567dd9d87b3916d7b118ab97811.stex"
 [deps]
 
 source_file="res://textures/camp.png"
-source_md5="3aee2dc1c2763c3d196fe85d7dfd7eeb"
-
 dest_files=[ "res://.import/camp.png-cc940567dd9d87b3916d7b118ab97811.stex" ]
-dest_md5="61f803f1db12f2e0d862950a3d7e1100"
 
 [params]
 

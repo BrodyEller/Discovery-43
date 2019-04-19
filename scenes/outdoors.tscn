@@ -1,98 +1,55 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://textures/snow_background.png" type="Texture" id=1]
-[ext_resource path="res://textures/camp_walls.png" type="Texture" id=2]
-[ext_resource path="res://instances/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/Doctor.png" type="Texture" id=4]
-[ext_resource path="res://textures/light_texture.png" type="Texture" id=5]
-[ext_resource path="res://textures/camp_boundary.png" type="Texture" id=6]
-[ext_resource path="res://textures/snow_particle.png" type="Texture" id=7]
-[ext_resource path="res://textures/camp_light_texture.png" type="Texture" id=8]
+[ext_resource path="res://scripts/outdoors_manager.gd" type="Script" id=1]
+[ext_resource path="res://textures/snow_background.png" type="Texture" id=2]
+[ext_resource path="res://textures/camp_walls.png" type="Texture" id=3]
+[ext_resource path="res://textures/outside_buildings.png" type="Texture" id=4]
+[ext_resource path="res://instances/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://instances/burning_imitator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/camp_boundary.png" type="Texture" id=7]
+[ext_resource path="res://textures/light_texture_square.png" type="Texture" id=8]
+[ext_resource path="res://characters/dogkeeper.png" type="Texture" id=9]
+[ext_resource path="res://characters/comms_guy.png" type="Texture" id=10]
+[ext_resource path="res://characters/Doctor.png" type="Texture" id=11]
+[ext_resource path="res://characters/scientist.png" type="Texture" id=12]
+[ext_resource path="res://characters/psycho.png" type="Texture" id=13]
+[ext_resource path="res://characters/chef.png" type="Texture" id=14]
+[ext_resource path="res://scripts/door_mat.gd" type="Script" id=15]
+[ext_resource path="res://textures/snow_particle.png" type="Texture" id=16]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 
 closed = true
 cull_mode = 0
-polygon = PoolVector2Array( 192, 1088, 448, 1088, 448, 896, 1536, 896, 1536, 1216, 1856, 1216, 1856, 64, 1376, 64, 1376, 384, 1536, 384, 1536, 448, 448, 448, 448, 320, 256, 320, 256, 448, 192, 448 )
+polygon = PoolVector2Array( 0.635723, 121.023, 0.635723, 270.775, 75.8043, 269.898, 75.7496, 244.639, 79.5016, 244.752, 79.5016, 219.398, 75.4085, 219.625, 75.022, 144.859, 426.706, 144.836, 426.729, 219.648, 422.749, 219.648, 422.522, 245.002, 426.729, 245.002, 426.456, 269.674, 499.562, 269.902, 499.704, 120.758 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 43.8797, 41.8265 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3.53979, 6.381 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3.41489, 6.38528 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.04861, 2.67459 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
 
 closed = true
 cull_mode = 0
-polygon = PoolVector2Array( 192, 1536, 192, 1920, 512, 1920, 512, 1536 )
+polygon = PoolVector2Array( 165.217, 176.359, 165.077, 189.828, 157.278, 189.928, 157.368, 204.307, 199.015, 203.557, 198.565, 189.158, 185.216, 189.109, 185.116, 190.958, 171.217, 191.108, 171.217, 189.958, 179.016, 189.958, 178.916, 176.059 )
 
-[sub_resource type="OccluderPolygon2D" id=3]
-
-closed = true
-cull_mode = 0
-polygon = PoolVector2Array( 1536, 1696, 1536, 1984, 1792, 1984, 1792, 1696 )
-
-[sub_resource type="Gradient" id=4]
-
-offsets = PoolRealArray( 0.00339751, 0.015855, 0.308483, 1 )
-colors = PoolColorArray( 1, 0.927419, 0.927419, 1, 1, 0.0752688, 0.0752688, 1, 1, 0.0752688, 0.0752688, 1, 1, 0.65625, 0, 1 )
-
-[sub_resource type="GradientTexture" id=5]
-
-flags = 4
-gradient = SubResource( 4 )
-width = 4
-
-[sub_resource type="Curve" id=6]
-
-min_value = 0.0
-max_value = 1.0
-bake_resolution = 100
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.996427, 0.5 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=7]
-
-flags = 4
-width = 2048
-curve = SubResource( 6 )
-
-[sub_resource type="ParticlesMaterial" id=8]
-
-render_priority = 0
-trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 10.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = true
-spread = 90.0
-flatness = 0.0
-gravity = Vector3( 0, -98, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = 10.0
-linear_accel_random = 0.25
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 5.0
-scale_random = 0.0
-scale_curve = SubResource( 7 )
-color_ramp = SubResource( 5 )
-hue_variation = 1.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-_sections_unfolded = [ "Color", "Hue Variation" ]
-
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -132,20 +89,23 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape" ]
 
-[node name="base" type="Node2D"]
+[node name="outdoors" type="Node2D" index="0"]
 
+script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [  ]
+"_edit_horizontal_guides_": [ 499.996, 96.9525 ],
+"_edit_vertical_guides_": [ 500.0 ]
 }
 
 [node name="ambient" type="CanvasModulate" parent="." index="0"]
 
-color = Color( 0.167969, 0.167969, 0.167969, 1 )
+color = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
 
 [node name="background" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
+visible = false
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 __meta__ = {
@@ -155,13 +115,11 @@ __meta__ = {
 [node name="camp_walls" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
-position = Vector2( -32, 0 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="light_occluder_main" type="LightOccluder2D" parent="camp_walls" index="0"]
@@ -169,19 +127,12 @@ __meta__ = {
 occluder = SubResource( 1 )
 light_mask = 1
 
-[node name="light_occluder_tool_shed" type="LightOccluder2D" parent="camp_walls" index="1"]
-
-occluder = SubResource( 2 )
-light_mask = 1
-
-[node name="light_occluder_pilot_cabin" type="LightOccluder2D" parent="camp_walls" index="2"]
-
-occluder = SubResource( 3 )
-light_mask = 1
-
-[node name="main_walls" type="StaticBody2D" parent="camp_walls" index="3"]
+[node name="lower_boundary" type="StaticBody2D" parent="camp_walls" index="1"]
 
 editor/display_folded = true
+visible = false
+position = Vector2( -15.5121, 0 )
+scale = Vector2( 0.25, 0.25 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -189,229 +140,178 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/main_walls" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 448, 1088, 192, 1088, 192, 448, 256, 448, 256, 320, 448, 320, 448, 448, 1536, 448, 1536, 384, 1376, 384, 1376, 64, 1856, 64, 1856, 1216, 1536, 1216, 1536, 1152, 1472, 1152, 1472, 992, 1536, 992, 1536, 896, 608, 896, 608, 960, 512, 960, 512, 896, 448, 896 )
-
-[node name="shed_walls" type="StaticBody2D" parent="camp_walls" index="4"]
-
-editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/shed_walls" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 192, 1536, 192, 1920, 512, 1920, 512, 1536, 320, 1536, 320, 1504, 256, 1504, 256, 1536 )
-
-[node name="cabin_walls" type="StaticBody2D" parent="camp_walls" index="5"]
-
-editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/cabin_walls" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 1536, 1696, 1536, 1984, 1792, 1984, 1792, 1696, 1696, 1696, 1696, 1664, 1632, 1664, 1632, 1696 )
-
-[node name="player" parent="." index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 460.381, 540.87 )
-MOVE_SPEED = 2
-
-[node name="burning_imitator" type="Sprite" parent="." index="4"]
-
-editor/display_folded = true
-position = Vector2( 464, 575 )
-texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/lower_boundary" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 450.417, 1641.24, 461.558, 1612.76, 491.267, 1582.44, 521.594, 1537.87, 549.446, 1493.93, 619.385, 1423.37, 740.944, 1369.65, 822.024, 1341.8, 992.849, 1315.18, 1087.3, 1306.39, 1238.19, 1315.31, 1275.95, 1317.16, 1350.84, 1327.07, 1384.38, 1334.99, 1491.71, 1390.69, 1536.89, 1414.21, 1619.21, 1489.72 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="left_boundary" type="StaticBody2D" parent="camp_walls" index="2"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -15.8003, -0.589081 )
+scale = Vector2( 0.25, 0.25 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/left_boundary" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 361.929, 1065.17, 365.147, 1092.75, 317.799, 1166.76, 289.943, 1213.1, 273.394, 1259.07, 248.571, 1329.31, 196.259, 1439.82, 164.081, 1525.87, 148.084, 1557.49, 148.544, 1580.48, 141.649, 1604.84, 131.076, 1637.48, 76.0658, 1607.16 )
+
+[node name="right_boundary" type="StaticBody2D" parent="camp_walls" index="3"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( -15.5058, 0 )
+scale = Vector2( 0.25, 0.25 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/right_boundary" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 1770.94, 1068.43, 1767.96, 1093.11, 1792.64, 1131.39, 1823.27, 1190.95, 1839.43, 1227.11, 1852.02, 1310.23, 1864.53, 1353.62, 1882.82, 1445.93, 1945.35, 1445.93 )
+
+[node name="wall_boundary" type="StaticBody2D" parent="camp_walls" index="4"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/wall_boundary" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 0.0983582, 120.439, 0.345581, 270.168, 75.751, 270.014, 75.9055, 244.982, 79.1504, 244.982, 79.7685, 207.588, 75.751, 207.124, 76.0908, 194.891, 426.55, 195.714, 426.277, 207.385, 422.491, 207.291, 422.396, 244.497, 426.467, 244.497, 426.315, 269.736, 499.364, 269.66, 499.421, 120.344 )
+
+[node name="barrel_boundary" type="StaticBody2D" parent="camp_walls" index="5"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_walls/barrel_boundary" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 75.6381, 190.447, 103.619, 192.504, 107.774, 193.607, 108.032, 197.563, 110.871, 200.917, 115.515, 201.863, 118.783, 202.121, 121.707, 200.487, 123.943, 201.433, 126.18, 202.723, 131.082, 202.723, 134.694, 201.347, 136.242, 196.617, 138.909, 191.284, 146.391, 191.37, 152.412, 191.628, 157.496, 192.501, 157.541, 203.367, 171.346, 203.5, 171.479, 205.103, 184.75, 204.97, 184.928, 202.788, 199, 202.432, 198.733, 191.21, 207.728, 191.21, 223.457, 192.43, 223.501, 198.62, 224.169, 200.935, 226.752, 201.915, 230.181, 202.227, 230.181, 206.145, 231.383, 208.06, 235.124, 208.951, 240.112, 208.417, 243.006, 206.947, 243.54, 203.696, 246.702, 203.696, 250.354, 202.316, 251.423, 201.692, 252.447, 203.607, 255.965, 204.453, 259.795, 204.364, 264.648, 202.004, 264.381, 192.608, 268.567, 191.45, 292.294, 192.216, 292.383, 199.029, 293.095, 201.3, 295.634, 203.972, 300.532, 204.061, 305.163, 202.503, 307.123, 203.883, 313.58, 204.15, 318.79, 202.725, 319.369, 201.434, 320.233, 199.902, 323.35, 202.084, 328.516, 202.841, 332.212, 201.951, 334.082, 199.101, 333.325, 191.886, 357.274, 192.599, 357.23, 203.554, 370.589, 204.044, 370.723, 202.396, 384.857, 202.556, 385.57, 198.148, 387.084, 200.107, 389.889, 201.755, 391.982, 202.2, 392.392, 204.596, 392.481, 207.446, 395.999, 207.758, 402.234, 207.668, 405.039, 207.179, 405.663, 206.422, 406.054, 204.765, 408.058, 205.388, 414.56, 205.656, 417.9, 205.477, 419.236, 202.672, 419.369, 198.931, 421.596, 200.891, 423.733, 200.802, 427.43, 199.466, 426.673, 185.438, 76.5233, 183.26 )
+
+[node name="shed" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 60.0236, 451.473 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="fire" type="Particles2D" parent="burning_imitator" index="0"]
+[node name="shed_sprite" type="Sprite" parent="shed" index="0"]
+
+texture = ExtResource( 4 )
+
+[node name="collision_shape" type="CollisionShape2D" parent="shed" index="1"]
+
+position = Vector2( -1.1319, 5.94348 )
+shape = SubResource( 2 )
+
+[node name="pilots_cabin" type="StaticBody2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 420.908, 405.438 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shed_sprite" type="Sprite" parent="pilots_cabin" index="0"]
+
+texture = ExtResource( 4 )
+
+[node name="collision_shape" type="CollisionShape2D" parent="pilots_cabin" index="1"]
+
+position = Vector2( -0.984314, 6.82886 )
+shape = SubResource( 2 )
+
+[node name="player" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 236.569, 234.929 )
+
+[node name="burning_imitator" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 242.714, 263.711 )
+
+[node name="camp_boundary" type="Sprite" parent="." index="7"]
 
 visible = false
-position = Vector2( 0.210419, 13.6424 )
-scale = Vector2( 0.604647, 0.384295 )
-emitting = true
-amount = 100
-lifetime = 1.0
-one_shot = false
-preprocess = 1.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 1.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 8 )
-texture = null
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Process Material", "Transform" ]
-
-[node name="campfire" type="Light2D" parent="burning_imitator" index="1"]
-
-position = Vector2( 0.240356, 11.1579 )
-scale = Vector2( 1.25, 1.25 )
-enabled = true
-editor_only = false
-texture = ExtResource( 5 )
-offset = Vector2( 0, 0 )
-texture_scale = 0.3
-color = Color( 1, 0.773354, 0.591398, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="camp_boundary" type="Sprite" parent="." index="5"]
-
-editor/display_folded = true
 position = Vector2( -32, 0 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 centered = false
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="lower_boundary" type="StaticBody2D" parent="camp_boundary" index="0"]
+[node name="camp_lights" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_boundary/lower_boundary" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 448, 1536, 464, 1472, 528, 1440, 624, 1408, 688, 1408, 816, 1472, 848, 1472, 880, 1440, 944, 1440, 1008, 1408, 1072, 1440, 1168, 1440, 1232, 1504, 1264, 1504, 1328, 1440, 1392, 1440, 1488, 1536, 1552, 1696 )
-
-[node name="left_boundary" type="StaticBody2D" parent="camp_boundary" index="1"]
-
-editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_boundary/left_boundary" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 448, 1088, 448, 1184, 416, 1248, 352, 1312, 288, 1344, 224, 1408, 160, 1536, 160, 1600, 192, 1664, 80, 1664, 80, 1440 )
-
-[node name="right_boundary" type="StaticBody2D" parent="camp_boundary" index="2"]
-
-editor/display_folded = true
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="collision_polygon" type="CollisionPolygon2D" parent="camp_boundary/right_boundary" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 1536, 1152, 1664, 1280, 1728, 1472, 1760, 1600, 1728, 1696, 1824, 1696, 1808, 1248 )
-
-[node name="snow" type="Particles2D" parent="." index="6"]
-
-visible = false
-position = Vector2( 569.424, 426.157 )
-scale = Vector2( 0.5, 0.5 )
-emitting = true
-amount = 2000
-lifetime = 5.0
-one_shot = false
-preprocess = 60.0
-speed_scale = 5.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -1100, -900, 2048, 2048 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 9 )
-texture = ExtResource( 7 )
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="camp_lights" type="Node2D" parent="." index="7"]
-
-editor/display_folded = true
-scale = Vector2( 0.25, 0.25 )
+scale = Vector2( 0.125, 0.125 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="camp_light_01" type="Light2D" parent="camp_lights" index="0"]
 
-position = Vector2( 1728, 2688 )
+position = Vector2( 743.84, 1239.56 )
 enabled = true
 editor_only = false
 texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
-texture_scale = 3.0
+texture_scale = 4.0
 color = Color( 1, 1, 1, 1 )
-energy = 0.6
+energy = 1.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -427,20 +327,17 @@ shadow_filter = 0
 shadow_filter_smooth = 4.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Shadow" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="camp_light_02" type="Light2D" parent="camp_lights" index="1"]
 
-position = Vector2( 2816, 2688 )
+position = Vector2( 1351.93, 1232.25 )
 enabled = true
 editor_only = false
 texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
-texture_scale = 3.0
+texture_scale = 4.0
 color = Color( 1, 1, 1, 1 )
-energy = 0.6
+energy = 1.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -451,24 +348,22 @@ range_item_cull_mask = 1
 shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 0 )
 shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
+shadow_gradient_length = 4.0
 shadow_filter = 0
 shadow_filter_smooth = 4.0
 shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Shadow" ]
 
 [node name="camp_light_03" type="Light2D" parent="camp_lights" index="2"]
 
-position = Vector2( 3392, 3264 )
+position = Vector2( 1816.22, 1231.03 )
 enabled = true
 editor_only = false
 texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
-texture_scale = 3.0
+texture_scale = 4.0
 color = Color( 1, 1, 1, 1 )
-energy = 0.6
+energy = 1.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -483,20 +378,18 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 4.0
 shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Shadow" ]
 
 [node name="camp_light_04" type="Light2D" parent="camp_lights" index="3"]
 
-position = Vector2( 704, 2688 )
+position = Vector2( 2215.92, 1231.03 )
 enabled = true
 editor_only = false
 texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
-texture_scale = 3.0
+texture_scale = 4.0
 color = Color( 1, 1, 1, 1 )
-energy = 0.6
+energy = 1.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -511,20 +404,18 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 4.0
 shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Shadow" ]
 
 [node name="camp_light_05" type="Light2D" parent="camp_lights" index="4"]
 
-position = Vector2( 960, 2368.28 )
+position = Vector2( 2607.1, 1233.47 )
 enabled = true
 editor_only = false
 texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
-texture_scale = 3.0
+texture_scale = 4.0
 color = Color( 1, 1, 1, 1 )
-energy = 0.6
+energy = 1.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -539,20 +430,18 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 4.0
 shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Shadow" ]
 
 [node name="camp_light_06" type="Light2D" parent="camp_lights" index="5"]
 
-position = Vector2( 3008, 1856 )
+position = Vector2( 3273.68, 1232.25 )
 enabled = true
 editor_only = false
 texture = ExtResource( 8 )
 offset = Vector2( 0, 0 )
-texture_scale = 3.0
+texture_scale = 4.0
 color = Color( 1, 1, 1, 1 )
-energy = 0.6
+energy = 1.0
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -567,79 +456,174 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 4.0
 shadow_item_cull_mask = 1
+_sections_unfolded = [ "Shadow" ]
+
+[node name="npc" type="Node2D" parent="." index="9"]
+
+position = Vector2( -225.884, -316.567 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="camp_light_07" type="Light2D" parent="camp_lights" index="6"]
+[node name="dogkeeper" type="Sprite" parent="npc" index="0"]
 
-position = Vector2( 1984, 1856 )
-enabled = true
-editor_only = false
-texture = ExtResource( 8 )
-offset = Vector2( 0, 0 )
-texture_scale = 3.0
-color = Color( 1, 1, 1, 1 )
-energy = 0.6
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 4.0
-shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 510.039, 541.945 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="npc" type="Node2D" parent="." index="8"]
+[node name="comms_guy" type="Sprite" parent="npc" index="1"]
+
+position = Vector2( 414.68, 550.145 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="doctor" type="Sprite" parent="npc" index="2"]
+
+position = Vector2( 525.761, 582.561 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="scientist" type="Sprite" parent="npc" index="3"]
+
+position = Vector2( 504.146, 619.87 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="psycho" type="Sprite" parent="npc" index="4"]
+
+position = Vector2( 457.219, 628.505 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="chef" type="Sprite" parent="npc" index="5"]
+
+position = Vector2( 415.078, 600.382 )
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="door_triggers" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="npc1" type="Sprite" parent="npc" index="0"]
+[node name="top_left_0" type="Area2D" parent="door_triggers" index="0"]
 
-position = Vector2( 510.039, 541.945 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+editor/display_folded = true
+position = Vector2( 82.3087, 237.435 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="npc2" type="Sprite" parent="npc" index="1"]
+[node name="collision_shape" type="CollisionShape2D" parent="door_triggers/top_left_0" index="0"]
 
-position = Vector2( 414.68, 550.145 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 1.01591, 1.0159 )
+shape = SubResource( 3 )
 
-[node name="npc3" type="Sprite" parent="npc" index="2"]
+[node name="top_right_1" type="Area2D" parent="door_triggers" index="1"]
 
-position = Vector2( 525.761, 582.561 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+editor/display_folded = true
+position = Vector2( 418.522, 238.427 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="npc4" type="Sprite" parent="npc" index="3"]
+[node name="collision_shape" type="CollisionShape2D" parent="door_triggers/top_right_1" index="0"]
 
-position = Vector2( 504.146, 619.87 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+shape = SubResource( 4 )
 
-[node name="npc5" type="Sprite" parent="npc" index="4"]
+[node name="bottom_left_3" type="Area2D" parent="door_triggers" index="2"]
 
-position = Vector2( 457.219, 628.505 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+editor/display_folded = true
+position = Vector2( 39.2752, 411.766 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="npc6" type="Sprite" parent="npc" index="5"]
+[node name="collision_shape" type="CollisionShape2D" parent="door_triggers/bottom_left_3" index="0"]
 
-position = Vector2( 415.078, 600.382 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 0.745361, 0.789948 )
+shape = SubResource( 5 )
+
+[node name="light_occluders" type="Node2D" parent="." index="11"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="light_occluders" index="0"]
+
+visible = false
+occluder = SubResource( 6 )
+light_mask = 1
+
+[node name="snow" type="Particles2D" parent="." index="12"]
+
+position = Vector2( 284.813, 215.227 )
+scale = Vector2( 0.25, 0.25 )
+emitting = true
+amount = 4000
+lifetime = 5.0
+one_shot = false
+preprocess = 60.0
+speed_scale = 5.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -1100, -900, 2048, 2048 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 7 )
+texture = ExtResource( 16 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Transform" ]
+
+[node name="spawn_points" type="Node2D" parent="." index="13"]
+
+editor/display_folded = true
+
+[node name="spawn_point_left" type="Node2D" parent="spawn_points" index="0"]
+
+position = Vector2( 102.943, 237.956 )
+
+[node name="spawn_point_right" type="Node2D" parent="spawn_points" index="1"]
+
+position = Vector2( 394.48, 240.167 )
+
+[connection signal="body_entered" from="door_triggers/top_left_0" to="door_triggers/top_left_0" method="_on_top_left_body_entered"]
+
+[connection signal="body_entered" from="door_triggers/top_right_1" to="door_triggers/top_right_1" method="_on_top_right_body_entered"]
+
+[connection signal="body_entered" from="door_triggers/bottom_left_3" to="door_triggers/bottom_left_3" method="_on_bottom_left_body_entered"]
 
 

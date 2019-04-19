@@ -7,10 +7,7 @@ path="res://.import/camp_walls.png-c861d1b75c006f2f7773993a6faaed66.stex"
 [deps]
 
 source_file="res://textures/camp_walls.png"
-source_md5="d0cc12ef98430101ff9e44557399c719"
-
 dest_files=[ "res://.import/camp_walls.png-c861d1b75c006f2f7773993a6faaed66.stex" ]
-dest_md5="ca89f0d1759a3c399ce781016cdcc12b"
 
 [params]
 
@@ -19,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
